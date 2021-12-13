@@ -3,6 +3,10 @@
     border: 1px solid black;
 }
 
+img {
+    border: 0;
+}
+
 .header {
     display: flex;
     flex-direction: column;
@@ -100,12 +104,10 @@ Image Slider-------------------------------
     margin: auto;
 }
 
-.visible {
-    opacity: 1;
-}
 
-.invisible {
-    opacity: 0;
+.hidden {
+    visibility: hidden;
+    position: absolute;
 }
 
 #clock-creature,
@@ -116,9 +118,9 @@ Image Slider-------------------------------
     justify-content: center;
     transition: opacity 0.3s;
 }
-
+/*
 #clock-creature {
-    display: block;
+    display: none;
 }
 
 #demiurge {
@@ -136,6 +138,7 @@ Image Slider-------------------------------
 #twitchy {
     display: none;
 }
+*/
 
 #button-flex-container {
     display: flex;

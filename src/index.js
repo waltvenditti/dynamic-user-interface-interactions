@@ -53,6 +53,7 @@ imgKingsPact.src = kingsPact;
 imgSpaceFam.src = spaceFam;
 imgTwitchy.src = twitchy;
 
+
 // build html
 divImgClockCreature.appendChild(imgClockCreature);
 divImgDemiurge.appendChild(imgDemiurge);
@@ -62,10 +63,23 @@ divImgTwitchy.appendChild(imgTwitchy);
 
 // helper functions
 function resetMobileDisplay() {
+    imgClockCreature.style.height = 0;
+    imgDemiurge.style.height = 0;
+    imgKingsPact.style.height = 0;
+    imgSpaceFam.style.height = 0;
+    imgTwitchy.style.height = 0;
+
+    divImgClockCreature.classList.add('hidden');
+    divImgDemiurge.classList.add('hidden');
+    divImgKingsPact.classList.add('hidden');
+    divImgSpaceFam.classList.add('hidden');
+    divImgTwitchy.classList.add('hidden');
+    /*
     mobile1.style.display = 'none';
     mobile2.style.display = 'none';
     mobile3.style.display = 'none';
     mobile4.style.display = 'none';
+    */
 }
 
 function resetImgDisplay() {
@@ -96,7 +110,9 @@ function clickBtnClock() {
 function clickBtnDem() {
     resetImgDisplay();
     resetBtnColor();
-    divImgDemiurge.style.display = 'block';
+    imgDemiurge.style.height = imgDemiurge.naturalHeight;
+    divImgDemiurge.classList.remove('hidden');
+    //divImgDemiurge.style.display = 'block';
     btnDem.style['background-color'] = 'black';
 }
 
