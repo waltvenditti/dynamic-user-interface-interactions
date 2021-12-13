@@ -33,6 +33,13 @@ const btnTwit = document.querySelector('#twit');
 const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 
+divImgClockCreature.style.display = 'block';
+divImgDemiurge.style.display = 'none';
+divImgKingsPact.style.display = 'none';
+divImgSpaceFam.style.display = 'none';
+divImgTwitchy.style.display = 'none';
+
+
 // images
 const imgClockCreature = new Image();
 const imgDemiurge = new Image();
@@ -79,7 +86,6 @@ function resetBtnColor() {
 
 
 // button click event functions 
-
 function clickBtnClock() {
     resetImgDisplay();
     resetBtnColor();
@@ -93,6 +99,7 @@ function clickBtnDem() {
     divImgDemiurge.style.display = 'block';
     btnDem.style['background-color'] = 'black';
 }
+
 
 function clickBtnKings() {
     resetImgDisplay();
@@ -116,12 +123,31 @@ function clickBtnTwit() {
 }
 
 function clickBtnRight() {
-    console.log(divImgClockCreature.style.display);
-    if (divImgClockCreature.style.display === 'block') clickBtnDem();
-    if (divImgDemiurge.style.display === 'block') clickBtnKings();
-    if (divImgKingsPact.style.display === 'block') clickBtnSpace();
-    if (divImgSpaceFam.style.display === 'block') clickBtnTwit();
-    if (divImgTwitchy.style.display === 'block') clickBtnClock();
+    if (divImgClockCreature.style.display === 'block') {
+        clickBtnDem();
+    } else if (divImgDemiurge.style.display === 'block') {
+        clickBtnKings();
+    } else if (divImgKingsPact.style.display === 'block') {
+        clickBtnSpace();
+    } else if (divImgSpaceFam.style.display === 'block') {
+        clickBtnTwit();
+    } else {
+        clickBtnClock();
+    }
+}
+
+function clickBtnLeft() {
+    if (divImgClockCreature.style.display === 'block') {
+        clickBtnTwit();
+    } else if (divImgDemiurge.style.display === 'block') {
+       clickBtnClock();
+    } else if (divImgKingsPact.style.display === 'block') {
+        clickBtnDem();
+    } else if (divImgSpaceFam.style.display === 'block') {
+        clickBtnKings();
+    } else {
+        clickBtnSpace();
+    }
 }
 
 
@@ -162,3 +188,4 @@ btnSpace.addEventListener('click', clickBtnSpace);
 btnTwit.addEventListener('click', clickBtnTwit);
 
 btnRight.addEventListener('click', clickBtnRight);
+btnLeft.addEventListener('click', clickBtnLeft);
