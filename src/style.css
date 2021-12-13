@@ -104,20 +104,27 @@ Image Slider-------------------------------
     margin: auto;
 }
 
-
-.hidden {
-    visibility: hidden;
-    position: absolute;
-}
-
 #clock-creature,
 #demiurge,
 #kings-pact,
 #space-fam,
 #twitchy {
     justify-content: center;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s ease-in-out 0s;
 }
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+}
+
+.visible {
+    visibility: visible;
+    position: relative;
+    opacity: 1;
+}
+
 /*
 #clock-creature {
     display: none;

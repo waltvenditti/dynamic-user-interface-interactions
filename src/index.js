@@ -22,7 +22,6 @@ const mobile4 = document.querySelector('#md4');
 const divImgClockCreature = document.querySelector('#clock-creature');
 const divImgDemiurge = document.querySelector('#demiurge');
 const divImgKingsPact = document.querySelector('#kings-pact');
-divImgClockCreature.style.display = 'block';
 const divImgSpaceFam = document.querySelector('#space-fam');
 const divImgTwitchy = document.querySelector('#twitchy');
 const btnClock = document.querySelector('#clock');
@@ -33,11 +32,11 @@ const btnTwit = document.querySelector('#twit');
 const btnLeft = document.querySelector('#left');
 const btnRight = document.querySelector('#right');
 
-divImgClockCreature.style.display = 'block';
-divImgDemiurge.style.display = 'none';
-divImgKingsPact.style.display = 'none';
-divImgSpaceFam.style.display = 'none';
-divImgTwitchy.style.display = 'none';
+divImgClockCreature.classList.add('visible');
+divImgDemiurge.classList.add('hidden');
+divImgKingsPact.classList.add('hidden');
+divImgSpaceFam.classList.add('hidden');
+divImgTwitchy.classList.add('hidden');
 
 
 // images
@@ -63,31 +62,30 @@ divImgTwitchy.appendChild(imgTwitchy);
 
 // helper functions
 function resetMobileDisplay() {
+    mobile1.style.display = 'none';
+    mobile2.style.display = 'none';
+    mobile3.style.display = 'none';
+    mobile4.style.display = 'none';
+}
+
+function resetImgDisplay() {
     imgClockCreature.style.height = 0;
     imgDemiurge.style.height = 0;
     imgKingsPact.style.height = 0;
     imgSpaceFam.style.height = 0;
     imgTwitchy.style.height = 0;
 
+    divImgClockCreature.classList.remove('visible');
+    divImgDemiurge.classList.remove('visible');
+    divImgKingsPact.classList.remove('visible');
+    divImgSpaceFam.classList.remove('visible');
+    divImgTwitchy.classList.remove('visible');
+
     divImgClockCreature.classList.add('hidden');
     divImgDemiurge.classList.add('hidden');
     divImgKingsPact.classList.add('hidden');
     divImgSpaceFam.classList.add('hidden');
     divImgTwitchy.classList.add('hidden');
-    /*
-    mobile1.style.display = 'none';
-    mobile2.style.display = 'none';
-    mobile3.style.display = 'none';
-    mobile4.style.display = 'none';
-    */
-}
-
-function resetImgDisplay() {
-    divImgClockCreature.style.display = 'none';
-    divImgDemiurge.style.display = 'none';
-    divImgKingsPact.style.display = 'none';
-    divImgSpaceFam.style.display = 'none';
-    divImgTwitchy.style.display = 'none';
 }
 
 function resetBtnColor() {
@@ -103,49 +101,52 @@ function resetBtnColor() {
 function clickBtnClock() {
     resetImgDisplay();
     resetBtnColor();
-    divImgClockCreature.style.display = 'block';
+    imgClockCreature.style.height = `${imgClockCreature.naturalHeight}px`;
+    divImgClockCreature.classList.add('visible');
     btnClock.style['background-color'] = 'black';
 }
 
 function clickBtnDem() {
     resetImgDisplay();
     resetBtnColor();
-    imgDemiurge.style.height = imgDemiurge.naturalHeight;
-    divImgDemiurge.classList.remove('hidden');
-    //divImgDemiurge.style.display = 'block';
+    imgDemiurge.style.height = `${imgDemiurge.naturalHeight}px`;
+    divImgDemiurge.classList.add('visible');
     btnDem.style['background-color'] = 'black';
 }
-
 
 function clickBtnKings() {
     resetImgDisplay();
     resetBtnColor();
-    divImgKingsPact.style.display = 'block';
+    imgKingsPact.style.height = `${imgKingsPact.naturalHeight}px`;
+    divImgKingsPact.classList.add('visible');
     btnKings.style['background-color'] = 'black';
 }
 
 function clickBtnSpace() {
     resetImgDisplay();
     resetBtnColor();
-    divImgSpaceFam.style.display = 'block';
+    imgSpaceFam.style.height = `${imgSpaceFam.naturalHeight}px`;
+    divImgSpaceFam.classList.add('visible');
     btnSpace.style['background-color'] = 'black';
 }
 
 function clickBtnTwit() {
     resetImgDisplay();
     resetBtnColor();
-    divImgTwitchy.style.display = 'block';
+    imgTwitchy.style.height = `${imgTwitchy.naturalHeight}px`;
+    divImgTwitchy.classList.add('visible');
     btnTwit.style['background-color'] = 'black';
 }
 
+
 function clickBtnRight() {
-    if (divImgClockCreature.style.display === 'block') {
+    if (divImgClockCreature.classList.contains('visible')) {
         clickBtnDem();
-    } else if (divImgDemiurge.style.display === 'block') {
+    } else if (divImgDemiurge.classList.contains('visible')) {
         clickBtnKings();
-    } else if (divImgKingsPact.style.display === 'block') {
+    } else if (divImgKingsPact.classList.contains('visible')) {
         clickBtnSpace();
-    } else if (divImgSpaceFam.style.display === 'block') {
+    } else if (divImgSpaceFam.classList.contains('visible')) {
         clickBtnTwit();
     } else {
         clickBtnClock();
@@ -153,13 +154,13 @@ function clickBtnRight() {
 }
 
 function clickBtnLeft() {
-    if (divImgClockCreature.style.display === 'block') {
+    if (divImgClockCreature.classList.contains('visible')) {
         clickBtnTwit();
-    } else if (divImgDemiurge.style.display === 'block') {
-       clickBtnClock();
-    } else if (divImgKingsPact.style.display === 'block') {
+    } else if (divImgDemiurge.classList.contains('visible')) {
+        clickBtnClock();
+    } else if (divImgKingsPact.classList.contains('visible')) {
         clickBtnDem();
-    } else if (divImgSpaceFam.style.display === 'block') {
+    } else if (divImgSpaceFam.classList.contains('visible')) {
         clickBtnKings();
     } else {
         clickBtnSpace();
