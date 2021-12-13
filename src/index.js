@@ -104,6 +104,8 @@ function clickBtnClock() {
     imgClockCreature.style.height = `${imgClockCreature.naturalHeight}px`;
     divImgClockCreature.classList.add('visible');
     btnClock.style['background-color'] = 'black';
+    clearInterval(slideShow);
+    slideShow = setInterval(clickBtnRight, 5000);
 }
 
 function clickBtnDem() {
@@ -112,6 +114,8 @@ function clickBtnDem() {
     imgDemiurge.style.height = `${imgDemiurge.naturalHeight}px`;
     divImgDemiurge.classList.add('visible');
     btnDem.style['background-color'] = 'black';
+    clearInterval(slideShow);
+    slideShow = setInterval(clickBtnRight, 5000);
 }
 
 function clickBtnKings() {
@@ -120,6 +124,8 @@ function clickBtnKings() {
     imgKingsPact.style.height = `${imgKingsPact.naturalHeight}px`;
     divImgKingsPact.classList.add('visible');
     btnKings.style['background-color'] = 'black';
+    clearInterval(slideShow);
+    slideShow = setInterval(clickBtnRight, 5000);
 }
 
 function clickBtnSpace() {
@@ -128,6 +134,8 @@ function clickBtnSpace() {
     imgSpaceFam.style.height = `${imgSpaceFam.naturalHeight}px`;
     divImgSpaceFam.classList.add('visible');
     btnSpace.style['background-color'] = 'black';
+    clearInterval(slideShow);
+    slideShow = setInterval(clickBtnRight, 5000);
 }
 
 function clickBtnTwit() {
@@ -136,6 +144,8 @@ function clickBtnTwit() {
     imgTwitchy.style.height = `${imgTwitchy.naturalHeight}px`;
     divImgTwitchy.classList.add('visible');
     btnTwit.style['background-color'] = 'black';
+    clearInterval(slideShow);
+    slideShow = setInterval(clickBtnRight, 5000);
 }
 
 
@@ -206,3 +216,7 @@ btnTwit.addEventListener('click', clickBtnTwit);
 
 btnRight.addEventListener('click', clickBtnRight);
 btnLeft.addEventListener('click', clickBtnLeft);
+
+
+// start slideshow
+let slideShow = setInterval(clickBtnRight, 5000);
